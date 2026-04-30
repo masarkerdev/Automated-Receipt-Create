@@ -1,0 +1,492 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Noto Sans Bengali", sans-serif;
+  background-color: #000000;
+}
+
+.container {
+  max-width: 650px;
+  margin: auto;
+  background-color: #f1f8e9;
+  padding: 20px;
+}
+#logoF {
+  width: 100px;
+  height: auto;
+  margin: auto;
+  border-radius: 50%;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
+.app {
+  font-family: "Noto Sans Bengali", sans-serif;
+  padding: 1rem 0;
+}
+.panel {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+.panel-title {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.25rem;
+}
+.fg {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.fl {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.fl label {
+  font-size: 17px;
+  color: var(--color-text-secondary);
+}
+.fl input,
+.fl select {
+  font-family: "Noto Sans Bengali", sans-serif;
+  font-size: 14px;
+  padding: 12px;
+  border: 1px solid black;
+  border-radius: 5px;
+  /* border: 0.5px solid var(--color-border-secondary);
+  border-radius: var(--border-radius-md);
+  background: var(--color-background-primary);
+  color: var(--color-text-primary); */
+}
+.sig-upload-box {
+  border: 1.5px dashed var(--color-border-secondary);
+  border-radius: var(--border-radius-md);
+  padding: 14px;
+  text-align: center;
+  cursor: pointer;
+  background: var(--color-background-secondary);
+}
+.sig-upload-box p {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  margin-top: 4px;
+}
+.sig-preview-wrap {
+  margin-top: 8px;
+  text-align: center;
+  display: none;
+}
+.sig-preview-wrap img {
+  max-height: 60px;
+  max-width: 180px;
+  object-fit: contain;
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: 8px;
+  padding: 4px;
+  background: #fff;
+}
+.sig-remove {
+  font-size: 11px;
+  color: #c0392b;
+  cursor: pointer;
+  margin-top: 4px;
+  display: inline-block;
+}
+.gen-btn {
+  width: 100%;
+  margin-top: 0.75rem;
+  padding: 11px;
+  background: #1b5e20;
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius-md);
+  font-family: "Noto Sans Bengali", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.gen-btn:hover {
+  background: #154a19;
+}
+.receipt-outer {
+  display: none;
+  background: var(--color-background-secondary);
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem;
+}
+.receipt-outer.show {
+  display: block;
+}
+.receipt {
+  background: #fff;
+  color: #111;
+  font-family: "Noto Sans Bengali", sans-serif;
+  border: 1px solid #c8c0a8;
+  border-radius: 4px;
+  overflow: hidden;
+  max-width: 580px;
+  margin: 0 auto;
+}
+.r-top-stripe {
+  height: 6px;
+  background: #1b5e20;
+}
+.r-inner {
+  padding: 1.75rem 2rem 1.5rem;
+}
+.r-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+.r-bismillah {
+  font-size: 18px;
+  color: #6b6b6b;
+  margin-bottom: 3px;
+}
+.r-org {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1b5e20;
+  line-height: 1.1;
+  margin-bottom: 2px;
+}
+.r-addr {
+  font-size: 15px;
+  color: #7a7a7a;
+}
+.r-badge-block {
+  text-align: right;
+}
+.r-badge {
+  display: inline-block;
+  background: #1b5e20;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: 3px;
+  margin-bottom: 6px;
+}
+.r-serial {
+  font-size: 11px;
+  color: #888;
+  text-align: right;
+}
+.r-divider-top {
+  border: none;
+  border-top: 2px solid #1b5e20;
+  margin: 0 0 1.25rem;
+}
+.r-field {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 0.85rem;
+}
+.r-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #444;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.r-val {
+  font-size: 16px;
+  color: #111;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.r-two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 0.85rem;
+}
+.r-amount-box {
+  background: #f1f8e9;
+  border: 1px solid #a5d6a7;
+  border-radius: 4px;
+  padding: 10px 14px;
+  margin: 0.5rem 0 0.9rem;
+}
+.r-amount-label {
+  font-size: 15px;
+  color: #2e7d32;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 2px;
+}
+.r-amount-val {
+  font-size: 25px;
+  font-weight: 700;
+  color: #1b5e20;
+}
+.r-amount-sub {
+  font-size: 16px;
+  color: #5a8a5a;
+  margin-top: 1px;
+}
+.r-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 1.25rem;
+  padding-top: 0.75rem;
+  border-top: 0.5px solid #d8d0be;
+}
+.r-sig-block {
+  text-align: right;
+}
+.r-sig-img {
+  display: none;
+  max-height: 52px;
+  max-width: 130px;
+  object-fit: contain;
+  margin-left: auto;
+  margin-bottom: 4px;
+}
+.r-sig-line {
+  width: 120px;
+  border-bottom: 1px solid #888;
+  margin-bottom: 4px;
+  margin-left: auto;
+}
+.r-sig-label {
+  font-size: 11px;
+  color: #666;
+}
+.r-sig-org {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1b5e20;
+  margin-top: 1px;
+}
+.r-bottom-stripe {
+  height: 4px;
+  background: #a5d6a7;
+}
+
+/* action buttons — 3 column */
+.action-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  margin-top: 1rem;
+}
+.btn-back {
+  padding: 10px 6px;
+  background: transparent;
+  border: 0.5px solid var(--color-border-secondary);
+  border-radius: var(--border-radius-md);
+  font-family: "Noto Sans Bengali", sans-serif;
+  font-size: 13px;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  text-align: center;
+}
+.btn-back:hover {
+  background: var(--color-background-secondary);
+}
+.btn-print {
+  padding: 10px 6px;
+  background: #1b5e20;
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius-md);
+  font-family: "Noto Sans Bengali", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+}
+.btn-print:hover {
+  background: #154a19;
+}
+.btn-img {
+  padding: 10px 6px;
+  background: #1565c0;
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius-md);
+  font-family: "Noto Sans Bengali", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  position: relative;
+}
+.btn-img:hover {
+  background: #0d47a1;
+}
+.btn-img:disabled {
+  background: #999;
+  cursor: not-allowed;
+}
+.loading-dot {
+  display: none;
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+  animation: pulse 0.8s infinite;
+}
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+/* Base (your existing styles stay same) */
+
+/* ========== MOBILE RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+    max-width: 100%;
+  }
+
+  .panel {
+    padding: 1rem;
+  }
+
+  .panel-title {
+    font-size: 16px;
+  }
+
+  /* form grid → single column */
+  .fg {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .fl label {
+    font-size: 15px;
+  }
+
+  .fl input,
+  .fl select {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  /* receipt layout */
+  .r-inner {
+    padding: 1.25rem 1rem;
+  }
+
+  .r-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .r-badge-block {
+    text-align: left;
+  }
+
+  .r-org {
+    font-size: 18px;
+  }
+
+  .r-addr {
+    font-size: 13px;
+  }
+
+  .r-two {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .r-label,
+  .r-val {
+    font-size: 14px;
+  }
+
+  .r-amount-val {
+    font-size: 20px;
+  }
+
+  .r-amount-sub {
+    font-size: 14px;
+  }
+
+  /* footer */
+  .r-footer {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .r-sig-block {
+    text-align: left;
+  }
+
+  .r-sig-line {
+    margin-left: 0;
+  }
+
+  /* buttons → stack */
+  .action-row {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-back,
+  .btn-print,
+  .btn-img {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+/* ========== EXTRA SMALL DEVICES (phones <480px) ========== */
+@media (max-width: 480px) {
+  .r-org {
+    font-size: 16px;
+  }
+
+  .r-bismillah {
+    font-size: 15px;
+  }
+
+  .r-label,
+  .r-val {
+    font-size: 13px;
+  }
+
+  .r-amount-val {
+    font-size: 18px;
+  }
+
+  .gen-btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  #logoF {
+    width: 80px;
+  }
+}
