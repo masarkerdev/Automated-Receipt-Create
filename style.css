@@ -7,6 +7,15 @@ body {
   font-family: "Noto Sans Bengali", sans-serif;
   background-color: #000000;
 }
+
+div#previewPanel {
+  width: 100%;
+  padding: 20px 15px;
+}
+
+.err-msg {
+  color: #e53935; /* এটা আছে কিনা দেখো */
+}
 .joma {
   text-decoration: none;
   color: red;

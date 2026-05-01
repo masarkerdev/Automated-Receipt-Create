@@ -28,6 +28,54 @@ function fmtDate(s) {
   ];
   return bn(parseInt(d)) + " " + mn[parseInt(m)] + ", " + bn(y);
 }
+
+// --- Validation helpers ---
+function showError(inputId, msg) {
+  const el = document.getElementById(inputId);
+  el.classList.add("input-error");
+  let err = el.parentElement.querySelector(".err-msg");
+  if (!err) {
+    err = document.createElement("span");
+    err.className = "err-msg";
+    el.parentElement.appendChild(err);
+  }
+  err.textContent = msg;
+}
+
+function clearError(inputId) {
+  const el = document.getElementById(inputId);
+  if (!el) return;
+  el.classList.remove("input-error");
+  const err = el.parentElement.querySelector(".err-msg");
+  if (err) err.textContent = "";
+}
+
+function showSigError(msg) {
+  const box = document.querySelector(".sig-upload-box");
+  box.classList.add("sig-error");
+  let err = document.getElementById("sigErrMsg");
+  if (!err) {
+    err = document.createElement("span");
+    err.className = "err-msg";
+    err.id = "sigErrMsg";
+    box.parentElement.appendChild(err);
+  }
+  err.textContent = msg;
+}
+
+function clearSigError() {
+  const box = document.querySelector(".sig-upload-box");
+  box.classList.remove("sig-error");
+  const err = document.getElementById("sigErrMsg");
+  if (err) err.textContent = "";
+}
+
+// Clear errors on input
+["fName", "fDate", "fAmount", "fBalance"].forEach((id) => {
+  document.getElementById(id).addEventListener("input", () => clearError(id));
+  document.getElementById(id).addEventListener("change", () => clearError(id));
+});
+
 function loadSig(input) {
   const file = input.files[0];
   if (!file) return;
@@ -36,29 +84,59 @@ function loadSig(input) {
     sigDataURL = e.target.result;
     document.getElementById("sigPreviewImg").src = sigDataURL;
     document.getElementById("sigPreviewWrap").style.display = "block";
+    clearSigError();
   };
   reader.readAsDataURL(file);
 }
+
 function removeSig() {
   sigDataURL = "";
   document.getElementById("sigInput").value = "";
   document.getElementById("sigPreviewImg").src = "";
   document.getElementById("sigPreviewWrap").style.display = "none";
 }
+
 function generate() {
   const name = document.getElementById("fName").value.trim();
   const month = document.getElementById("fMonth").value;
   const date = document.getElementById("fDate").value;
   const amt = document.getElementById("fAmount").value.trim();
   const bal = document.getElementById("fBalance").value.trim();
-  if (!name || !amt || !date) {
-    alert("নাম, তারিখ ও পরিমাণ অবশ্যই দিতে হবে।");
-    return;
+
+  // Clear previous errors
+  ["fName", "fDate", "fAmount", "fBalance"].forEach(clearError);
+  clearSigError();
+
+  let hasError = false;
+
+  if (!name) {
+    showError("fName", "❌ সদস্যের নাম দাঁও নাই ");
+    hasError = true;
   }
+  if (!date) {
+    showError("fDate", "❌ জমার তারিখ দাঁও নাই");
+    hasError = true;
+  }
+  if (!amt) {
+    showError("fAmount", "❌ জমার পরিমাণ দাঁও নাই");
+    hasError = true;
+  }
+  if (!bal) {
+    showError("fBalance", "❌ মোট স্থিতি দাঁও নাই");
+    hasError = true;
+  }
+  if (!sigDataURL) {
+    showSigError("❌ স্বাক্ষর বা ছবি আপলোড করো নাই");
+    hasError = true;
+  }
+
+  if (hasError) return;
+
   serial++;
   try {
     sessionStorage.setItem("amfS5", serial);
   } catch (e) {}
+
   document.getElementById("rSerial").textContent = "রশিদ নং: " + bn(serial);
   document.getElementById("rDateBadge").textContent = fmtDate(date);
   document.getElementById("rName").textContent = name;
@@ -80,19 +158,22 @@ function generate() {
   document.getElementById("formPanel").style.display = "none";
   document.getElementById("previewPanel").classList.add("show");
 }
+
 function goBack() {
   document.getElementById("formPanel").style.display = "block";
   document.getElementById("previewPanel").classList.remove("show");
   ["fName", "fAmount", "fBalance"].forEach(
     (id) => (document.getElementById(id).value = ""),
   );
+  ["fName", "fDate", "fAmount", "fBalance"].forEach(clearError);
+  clearSigError();
 }
+
 function doPrint() {
   const h = document.getElementById("theReceipt").outerHTML;
-  const name = document.getElementById("rName").textContent || "receipt";
   const w = window.open("", "_blank");
   w.document
-    .write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>রশিদ — আল মাকাম ফাউন্ডেশন</title>
+    .write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>জমার রশিদ — আল-মাক্বাম ফাউন্ডেশন</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>*{box-sizing:border-box;margin:0;padding:0;}
   body{background:#f5f5f0;display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:'Noto Sans Bengali',sans-serif;padding:30px;}
