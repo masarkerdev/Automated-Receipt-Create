@@ -217,5 +217,21 @@
     </section>
 
     <script src="scritp.js"></script>
+
+    <!-- Background Music -->
+    <audio id="bgMusic" src="gann.mp3" preload="auto" loop></audio>
+
+    <script>
+      document.addEventListener(
+        "click",
+        function startBG() {
+          const music = document.getElementById("bgMusic");
+          music.volume = 0.3; // 0.0 = নিঃশব্দ, 1.0 = সর্বোচ্চ
+          music.play();
+          document.removeEventListener("click", startBG);
+        },
+        { once: true },
+      );
+    </script>
   </body>
 </html>
