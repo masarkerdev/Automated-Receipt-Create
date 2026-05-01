@@ -26,7 +26,7 @@
             <div class="fg">
               <div class="fl" style="grid-column: 1/-1">
                 <label>সদস্যের নাম</label>
-                <input type="text" id="fName" placeholder="পুরো নাম লিখুন" />
+                <input type="text" id="fName" placeholder="সম্পূর্ন নাম লিখো" />
               </div>
             </div>
             <div class="fg">
@@ -55,11 +55,19 @@
             <div class="fg">
               <div class="fl">
                 <label>জমার পরিমাণ (৳)</label>
-                <input type="number" id="fAmount" placeholder="যেমন: ৫০০" />
+                <input
+                  type="number"
+                  id="fAmount"
+                  placeholder="যেমন: ৫,০০০ টাকা"
+                />
               </div>
               <div class="fl">
-                <label>মোট স্থিতি (৳)</label>
-                <input type="number" id="fBalance" placeholder="যেমন: ৩০০০" />
+                <label>আজকে পর্যন্ত মোট জমা (৳)</label>
+                <input
+                  type="number"
+                  id="fBalance"
+                  placeholder="যেমন: ৩০,০০০ টাকা"
+                />
               </div>
             </div>
             <div class="fl" style="margin-top: 4px">
@@ -96,9 +104,11 @@
                   <polyline points="17 8 12 3 7 8" />
                   <line x1="12" y1="3" x2="12" y2="15" />
                 </svg>
-                <p>ক্লিক করে স্বাক্ষরের/ ছবি বেছে নিন</p>
-                <p style="font-size: 11px; margin-top: 2px">
-                  (PNG, JPG — সাদা বা স্বচ্ছ ব্যাকগ্রাউন্ড ভালো)
+                <p style="font-size: 16px; color: green">
+                  ক্লিক করে স্বাক্ষরের/ ছবি বেছে নিন
+                </p>
+                <p style="font-size: 14px; margin-top: 2px">
+                  (PNG, JPG — সাদা বা স্বচ্ছ ব্যাকগ্রাউন্ড হলে ভালো)
                 </p>
               </div>
               <input
@@ -111,7 +121,7 @@
               <div class="sig-preview-wrap" id="sigPreviewWrap">
                 <img id="sigPreviewImg" src="" alt="স্বাক্ষর প্রিভিউ" />
                 <br /><span class="sig-remove" onclick="removeSig()"
-                  >✕ সরিয়ে দিন</span
+                  >✕ অন্য ছবি দিতে চাই</span
                 >
               </div>
             </div>

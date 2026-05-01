@@ -37,11 +37,13 @@ body {
     opacity: 1;
   }
 }
+
 .container {
   max-width: 650px;
   margin: auto;
   background-color: #f1f8e9;
   padding: 20px;
+  margin-top: 50px;
 }
 #logoF {
   width: 100px;
@@ -401,6 +403,9 @@ body {
     width: 100%;
   }
   .container {
+    margin-top: 0px;
+  }
+  .container {
     padding: 15px;
     max-width: 100%;
   }
@@ -499,6 +504,9 @@ body {
 
 /* ========== EXTRA SMALL DEVICES (phones <480px) ========== */
 @media (max-width: 480px) {
+  .container {
+    margin-top: 0px;
+  }
   .r-org {
     font-size: 16px;
   }
