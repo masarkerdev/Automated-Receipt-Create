@@ -41,6 +41,7 @@ body {
 .container {
   max-width: 650px;
   margin: auto;
+  border-radius: 12px;
   background-color: #f1f8e9;
   padding: 20px;
   margin-top: 50px;
@@ -288,7 +289,7 @@ body {
 .r-sig-img {
   display: none;
   max-height: 52px;
-  max-width: 130px;
+  max-width: 150px;
   object-fit: contain;
   margin-left: auto;
   margin-bottom: 4px;
