@@ -7,7 +7,36 @@ body {
   font-family: "Noto Sans Bengali", sans-serif;
   background-color: #000000;
 }
+.joma {
+  text-decoration: none;
+  color: red;
+  position: relative;
+}
 
+.joma:hover {
+  color: #2e7d32;
+}
+
+/* blinking alert dot */
+.joma::before {
+  content: "🚨";
+  margin-left: 6px;
+  display: inline-block;
+  animation: blink 1.5s infinite;
+}
+
+/* animation */
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .container {
   max-width: 650px;
   margin: auto;

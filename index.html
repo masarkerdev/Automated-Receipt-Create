@@ -21,7 +21,7 @@
             <h2 class="sr-only">মাসিক জমার রশিদ</h2>
           </div>
           <div class="panel" id="formPanel">
-            <p class="panel-title">তথ্য পূরণ করুন</p>
+            <p class="panel-title">সদস্যের তথ্য দাও</p>
             <div class="fg">
               <div class="fl" style="grid-column: 1/-1">
                 <label>সদস্যের নাম</label>
@@ -62,7 +62,18 @@
               </div>
             </div>
             <div class="fl" style="margin-top: 4px">
-              <label>গ্রহণকারীর স্বাক্ষর (ছবি আপলোড করুন)</label>
+              <label
+                ><a
+                  href="https://docs.google.com/spreadsheets/d/14AkTyYDQb5z2GSpEM42uumpkqi_FFJvlkDjMAg9ZNNA/edit?gid=0#gid=0"
+                  target="_blank"
+                  class="joma"
+                >
+                  কার কত টাকা জমা হল দেখতে চাই!
+                </a></label
+              >
+              <label
+                >গ্রহণকারীর স্বাক্ষর/ পাসপোর্ট সাইজের ছবি (আপলোড করো)</label
+              >
               <div
                 class="sig-upload-box"
                 onclick="document.getElementById('sigInput').click()"
@@ -103,7 +114,9 @@
                 >
               </div>
             </div>
-            <button class="gen-btn" onclick="generate()">রশিদ তৈরি করুন</button>
+            <button class="gen-btn" onclick="generate()">
+              মাসিক জমার রশিদ তৈরি করো
+            </button>
           </div>
 
           <div class="receipt-outer" id="previewPanel">
