@@ -58,6 +58,15 @@ body {
   text-align: center;
   justify-content: center;
 }
+.newcolor {
+  background-color: #2e7d32;
+  display: inline;
+  width: 40%;
+  margin: auto;
+  color: white;
+  padding-top: 5px;
+  border-radius: 8px;
+}
 .app {
   font-family: "Noto Sans Bengali", sans-serif;
   padding: 1rem 0;
@@ -147,7 +156,7 @@ body {
   border: none;
   border-radius: var(--border-radius-md);
   font-family: "Noto Sans Bengali", sans-serif;
-  font-size: 15px;
+  font-size: 19px;
   font-weight: 500;
   cursor: pointer;
 }
@@ -402,6 +411,10 @@ body {
     align-items: center;
     width: 100%;
   }
+
+  .newcolor {
+    width: 60%;
+  }
   .container {
     margin-top: 0px;
   }
@@ -506,6 +519,9 @@ body {
 @media (max-width: 480px) {
   .container {
     margin-top: 0px;
+  }
+  .newcolor {
+    width: 60%;
   }
   .r-org {
     font-size: 16px;
