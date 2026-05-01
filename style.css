@@ -365,6 +365,12 @@ body {
 
 /* ========== MOBILE RESPONSIVE ========== */
 @media (max-width: 768px) {
+  .r-badge-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
   .container {
     padding: 15px;
     max-width: 100%;
